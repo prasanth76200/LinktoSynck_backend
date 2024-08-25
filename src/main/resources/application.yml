@@ -2,9 +2,9 @@ spring:
   application:
     name: Backend
   datasource:
-    url: jdbc:postgresql://localhost:5433/test_db
-    username: postgres
-    password: 'admin@123'  # Replace with the actual content of your secret file
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
@@ -15,9 +15,14 @@ spring:
         format_sql: true
   sql:
     init:
-      mode: always  # Ensures that SQL scripts run during initialization if available
+      mode: always
 
 logging:
   level:
     org.springframework.web: DEBUG
     com.LinktoSync: DEBUG
+
+app:
+  security:
+    username: ${APP_USERNAME}
+    password: ${APP_PASSWORD}
