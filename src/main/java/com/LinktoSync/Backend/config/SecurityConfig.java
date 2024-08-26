@@ -1,4 +1,4 @@
-package com.LinktoSync.Backend;
+package com.LinktoSync.Backend.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -41,7 +41,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .authorizeHttpRequests((requests) -> requests.anyRequest().authenticated())
-            .formLogin((form) -> form.defaultSuccessUrl("/home", true));
+            .formLogin((form) -> form.defaultSuccessUrl("/swagger-ui/index.html", true));
         return http.build();
     }
 }
