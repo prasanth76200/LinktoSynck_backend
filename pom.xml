@@ -116,7 +116,7 @@
 	<build>
 		<plugins>
 			<!-- Asciidoctor for generating documentation -->
-			<plugin>
+			<!-- <plugin>
 				<groupId>org.asciidoctor</groupId>
 				<artifactId>asciidoctor-maven-plugin</artifactId>
 				<version>2.2.1</version>
@@ -131,7 +131,7 @@
 							<backend>html</backend>
 							<doctype>book</doctype>
 						</configuration>
-					</execution>
+					</execution> 
 				</executions>
 				<dependencies>
 					<dependency>
@@ -140,7 +140,7 @@
 						<version>${spring-restdocs.version}</version>
 					</dependency>
 				</dependencies>
-			</plugin>
+			</plugin> -->
 
 			<!-- Spring Boot Maven Plugin for building and packaging -->
 			<plugin>
