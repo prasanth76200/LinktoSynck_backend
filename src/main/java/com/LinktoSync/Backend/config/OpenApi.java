@@ -13,7 +13,7 @@ import io.swagger.v3.oas.annotations.servers.Server;
         contact= @Contact(
             name = "LinktoSync",
             email= "prasanth76200@gmail.com",
-            url ="https://prasanth-portfolio-two.vercel.app/"
+            url ="https://prasanth-portfolio-two.vercel.app"
         ),
         description= "OFFICAL LinktoSync RESTfull API Documentation",
         title = "LinktoSync API Specification",
