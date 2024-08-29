@@ -33,4 +33,7 @@ build/
 ### VS Code ###
 .vscode/
 .env
+<<<<<<< HEAD
 .secrets/
+=======
+>>>>>>> 6093f72 (files Updated)
