@@ -1,28 +1,72 @@
+# spring:
+#   application:
+#     name: Backend
+#   datasource:
+#     url: ${DB_URL}
+#     username: ${DB_USERNAME}
+#     password: ${DB_PASSWORD}
+#     driver-class-name: org.postgresql.Driver
+#   jpa:
+#     hibernate:
+#       ddl-auto: update
+#     show-sql: true
+#     properties:
+#       hibernate:
+#         format_sql: true
+#   sql:
+#     init:
+#       mode: always
+
+# logging:
+#   level:
+#     org.springframework.web: DEBUG
+#     com.LinktoSync: DEBUG
+
+# app:
+#   security:
+#     username: ${APP_USERNAME}
+#     password: ${APP_PASSWORD}
 spring:
   application:
-    name: Backend
+     name: Backend
   datasource:
     url: ${DB_URL}
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
+    hikari:
+      # Connection pool settings
+      maximum-pool-size: 50 # Adjust based on your application load
+      minimum-idle: 10
+      idle-timeout: 30000
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      pool-name: HikariCP
+      
   jpa:
     hibernate:
-      ddl-auto: update
-    show-sql: true
+      ddl-auto: update # Use 'validate' or 'none' in production environments
+      naming:
+         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        
     properties:
       hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
-  sql:
-    init:
-      mode: always
+        show_sql: true
+        use_sql_comments: true
+        jdbc:
+          lob:
+            non_contextual_creation: true # Prevents issues with LOBs
+    open-in-view: false
 
 logging:
   level:
-    org.springframework.web: DEBUG
+    org.hibernate.SQL: debug # Debug level for SQL logging in dev (remove in production)
     com.LinktoSync: DEBUG
 
 app:
   security:
     username: ${APP_USERNAME}
     password: ${APP_PASSWORD}
+# Additional configuration for transaction management, caching, etc.
